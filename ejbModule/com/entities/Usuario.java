@@ -131,12 +131,6 @@ import javax.persistence.*;
 @Inheritance(strategy=InheritanceType.JOINED)
 public class Usuario implements java.io.Serializable {
 	
-	@Override
-	public String toString() {
-		return "Usuario [idUsuario=" + idUsuario + ", apellido=" + apellido + ", nombre=" + nombre + ", mail=" + mail
-				+ ", tipo=" + tipo + ", nombreUsuario=" + nombreUsuario + ", contraseña=" + contraseña + "]";
-	}
-
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -160,6 +154,9 @@ public class Usuario implements java.io.Serializable {
 	
 	@Column(length=14)
 	private String contraseña;
+	
+	@Enumerated(EnumType.STRING)
+	private Estado estado;
 
 
 	
@@ -176,6 +173,7 @@ public class Usuario implements java.io.Serializable {
 		this.nombre = nombre;
 		this.tipo = tipo;
 		this.nombreUsuario = nombreUsuario;
+		
 	}
 
 	public long getIdUsuario() {
@@ -232,6 +230,19 @@ public class Usuario implements java.io.Serializable {
 
 	public void setNombreUsuario(String nombreUsuario) {
 		this.nombreUsuario = nombreUsuario;
+	}
+
+	public Estado getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Estado estado) {
+		this.estado = estado;
+	}
+
+	@Override
+	public String toString() {
+		return nombre +" "+ apellido;
 	} 
 	
    

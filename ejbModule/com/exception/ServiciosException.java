@@ -1,13 +1,9 @@
 package com.exception;
 
-public class ServiciosException extends Exception
-{
- /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class ServiciosException extends Exception{
 
-public ServiciosException (String mensaje){
-super(mensaje);
- }
-} 
+	public ServiciosException (String mensaje){  
+		
+		super(mensaje);
+	}  
+}

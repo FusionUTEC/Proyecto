@@ -1,5 +1,6 @@
 package com.entities;
 
 public enum Estado {
-ACTIVO, INACTIVO
+	ACTIVO,INACTIVO
+
 }

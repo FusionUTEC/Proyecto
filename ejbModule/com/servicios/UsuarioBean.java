@@ -74,7 +74,7 @@ public class UsuarioBean implements UsuarioBeanRemote {
 
 		try {
 			@SuppressWarnings("unchecked")
-			List result = em.createQuery("SELECT u FROM Administrador u WHERE u.nombreUsuario= :nombreUsuario",Usuario.class)		
+			List result = em.createQuery("SELECT u FROM Administrador u WHERE u.nombreUsuario= :nombreUsuario",Administrador.class)		
 			.setParameter("nombreUsuario", nombreUsuario) 
 			.setMaxResults(1).getResultList();
 
@@ -121,60 +121,6 @@ public class UsuarioBean implements UsuarioBeanRemote {
 		}
 
 	}
-	
-	@Override
-	public Administrador buscarAdm(Long idusuario) {
-
-		try {
-			@SuppressWarnings("unchecked")
-			List result = em.createQuery("SELECT u FROM Usuario u WHERE u.idusuario= :idusuario",Administrador.class)		
-			.setParameter("idusuario", idusuario) 
-			.setMaxResults(1).getResultList();
-
-			return (Administrador) result.get(0);
-			
-		} catch (IndexOutOfBoundsException e) {
-			System.out.println("¨No se encontró el usuario");
-			return null;
-		}
-
-	}
-	@Override
-	public Investigador buscarInv(Long idusuario) {
-
-		try {
-			@SuppressWarnings("unchecked")
-			List result = em.createQuery("SELECT u FROM Usuario u WHERE u.idusuario= :idusuario",Investigador.class)		
-			.setParameter("idusuario", idusuario) 
-			.setMaxResults(1).getResultList();
-
-			return (Investigador) result.get(0);
-			
-		} catch (IndexOutOfBoundsException e) {
-			System.out.println("¨No se encontró el usuario");
-			return null;
-		}
-
-	}
-	
-	@Override
-	public Aficionado buscarAfi(Long idusuario) {
-
-		try {
-			@SuppressWarnings("unchecked")
-			List result = em.createQuery("SELECT u FROM Aficionado u WHERE u.idusuario= :idusuario",Aficionado.class)		
-			.setParameter("idusuario", idusuario) 
-			.setMaxResults(1).getResultList();
-
-			return (Aficionado) result.get(0);
-			
-		} catch (IndexOutOfBoundsException e) {
-			System.out.println("¨No se encontró el usuario");
-			return null;
-		}
-
-	}
-	
 	@Override
 	public Usuario ConsultaTipo(  String nombreUsuario, String contraseña) {
 		String tipo=null;
@@ -198,7 +144,7 @@ public class UsuarioBean implements UsuarioBeanRemote {
 		}
 	}
 
-	public Administrador crearAd(Administrador admin) throws ServiciosException  {
+	public Administrador crearAd (Administrador admin) throws ServiciosException  {
 
 		try{
 			em.persist(admin);

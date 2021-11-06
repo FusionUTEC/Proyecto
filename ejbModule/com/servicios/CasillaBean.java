@@ -42,7 +42,9 @@ public class CasillaBean implements CasillaBeanRemote {
 			return null;
 		}
 
+		
 	}
+
 
     /**
      * Default constructor. 

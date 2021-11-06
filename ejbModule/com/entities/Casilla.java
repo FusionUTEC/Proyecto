@@ -16,8 +16,7 @@ public class Casilla implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name="CASILLAS_IDCASILLA_GENERATOR" )
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="CASILLAS_IDCASILLA_GENERATOR")
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="ID_CASILLA")
 	private long idCasilla;
 

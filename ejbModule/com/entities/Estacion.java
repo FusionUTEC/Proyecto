@@ -19,7 +19,7 @@ public class Estacion implements Serializable {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long idEstacion;
 
-	@Column(length=20)
+	@Column(unique=true,length=20)
 	private String nombre;
 
 	//DEPARTAMENTO ES CODIGUERA, COMO SE HACE?
@@ -40,6 +40,9 @@ public class Estacion implements Serializable {
 	
 	@ManyToOne
 	private Usuario idInvestigador;
+	
+	@Enumerated(EnumType.STRING)
+	private Estado estado;
 
 	
 	public Estacion() {
@@ -108,6 +111,14 @@ public class Estacion implements Serializable {
 
 	public void setIdInvestigador(Usuario idInvestigador) {
 		this.idInvestigador = idInvestigador;
+	}
+
+	public Estado getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Estado estado) {
+		this.estado = estado;
 	}
 	
 	

@@ -10,7 +10,6 @@ import com.entities.Casilla;
 public interface CasillaBeanRemote {
 
 	List<Casilla> obtenerTodos();
-
 	Casilla buscar(String nombre);
 
 }

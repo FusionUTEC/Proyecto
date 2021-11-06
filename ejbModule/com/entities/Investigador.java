@@ -1,6 +1,6 @@
 package com.entities;
 
-//import com.entities.Usuario;
+import com.entities.Usuario;
 import java.io.Serializable;
 import java.util.List;
 
@@ -11,10 +11,6 @@ import javax.persistence.*;
 @PrimaryKeyJoinColumn(referencedColumnName="idUsuario")
 public class Investigador extends Usuario implements Serializable {
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private String ciudad;
 	private String documento;
 	private String domicilio;
@@ -29,9 +25,9 @@ public class Investigador extends Usuario implements Serializable {
 		super();
 	}
 
-	public Investigador(String apellido, String contraseña, String mail, String nombre, String tipo, String nombreUsuario
+	public Investigador(String apellido, String contraseña, String mail, String nombre, String nombreUsuario, String tipo
 			,String ciudad, String documento, String domicilio, String telefono, List<Estacion> estaciones) {
-		super(apellido, contraseña, mail, nombre, tipo, nombreUsuario);
+		super(apellido, contraseña, mail, nombre, nombreUsuario, tipo);
 		this.ciudad = ciudad;
 		this.documento = documento;
 		this.domicilio = domicilio;

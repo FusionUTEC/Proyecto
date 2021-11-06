@@ -3,6 +3,8 @@ package com.entities;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -19,35 +21,22 @@ public class Formulario implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name="FORMULARIOS_IDFORMULARIO_GENERATOR" )
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="FORMULARIOS_IDFORMULARIO_GENERATOR")
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="ID_FORMULARIO")
 	private long idFormulario;
 
 	private String comentarios;
 
-	@Temporal(TemporalType.DATE)
+	//@Temporal(TemporalType.DATE)
 	@Column(name="FECHA_HORA")
-	private Date fechaHora;
+	private Timestamp fechaHora;
 
 	@Column(name="ID_USUARIO")
 	private Long idUsuario;
 
-	@Column(name="METODO_MEDICION")
-	private String metodoMedicion;
-
 	private String nombre;
 
-	@Column(name="NOMBRE_VARIABLE")
-	private String nombreVariable;
-
 	private String ubicacion;
-
-	/*/bi-directional many-to-many association to Casilla
-	@ManyToMany
-	
-	private List<Casilla> casillas;*/
-	
 	
 	
 	@ManyToMany(cascade = {CascadeType.MERGE}, fetch = FetchType.EAGER)
@@ -59,10 +48,9 @@ public class Formulario implements Serializable {
 	private List<Casilla> casillas;
 	
 	
-	
-	//bi-directional many-to-one association to Registro
-	//@OneToMany(mappedBy="formulario")
-	//private List<Registro> registros;
+	@Enumerated(EnumType.STRING)
+	private Estado estado;
+
 
 	public Formulario() {
 	}
@@ -83,11 +71,11 @@ public class Formulario implements Serializable {
 		this.comentarios = comentarios;
 	}
 
-	public Date getFechaHora() {
+	public Timestamp getFechaHora() {
 		return this.fechaHora;
 	}
 
-	public void setFechaHora(Date fechaHora) {
+	public void setFechaHora(Timestamp fechaHora) {
 		this.fechaHora = fechaHora;
 	}
 
@@ -99,14 +87,6 @@ public class Formulario implements Serializable {
 		this.idUsuario = idUser;
 	}
 
-	public String getMetodoMedicion() {
-		return this.metodoMedicion;
-	}
-
-	public void setMetodoMedicion(String metodoMedicion) {
-		this.metodoMedicion = metodoMedicion;
-	}
-
 	public String getNombre() {
 		return this.nombre;
 	}
@@ -115,13 +95,6 @@ public class Formulario implements Serializable {
 		this.nombre = nombre;
 	}
 
-	public String getNombreVariable() {
-		return this.nombreVariable;
-	}
-
-	public void setNombreVariable(String nombreVariable) {
-		this.nombreVariable = nombreVariable;
-	}
 
 	public String getUbicacion() {
 		return this.ubicacion;
@@ -137,6 +110,14 @@ public class Formulario implements Serializable {
 
 	public void setCasillas(List<Casilla> casillas) {
 		this.casillas = casillas;
+	}
+
+	public Estado getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Estado estado) {
+		this.estado = estado;
 	}
 	
 

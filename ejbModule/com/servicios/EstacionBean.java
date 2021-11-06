@@ -70,7 +70,6 @@ public class EstacionBean implements EstacionBeanRemote {
 			e.getMessage();
 		}
 
-
 	}
 	@Override
 	public void borrar(Long id) throws ServiciosException {
@@ -93,6 +92,7 @@ public class EstacionBean implements EstacionBeanRemote {
 
 		
 	}
+
 
 
 

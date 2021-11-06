@@ -9,21 +9,10 @@ import javax.persistence.*;
 @PrimaryKeyJoinColumn(referencedColumnName="idUsuario")
 public class Administrador extends Usuario implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
-	@Column(length=20)
+	
 	private String ciudad;
-	
-	@Column(length=20)
 	private String documento;
-	
-	@Column(length=20)
 	private String domicilio;
-	
-	@Column(length=20)
 	private String telefono;
 	
 	//private static final long serialVersionUID = 1L;
@@ -32,9 +21,9 @@ public class Administrador extends Usuario implements Serializable {
 		super();
 	}
 
-	public Administrador(String apellido, String contraseña, String mail, String nombre, String tipo, String nombreUsuario,
+	public Administrador(String apellido, String contraseña, String mail, String nombre, String nombreUsuario,String tipo,
 			String ciudad, String documento, String domicilio, String telefono) {
-		super(apellido, contraseña, mail, nombre, tipo, nombreUsuario);
+		super(apellido, contraseña, mail, nombre,nombreUsuario,tipo);
 		this.ciudad = ciudad;
 		this.documento = documento;
 		this.domicilio = domicilio;

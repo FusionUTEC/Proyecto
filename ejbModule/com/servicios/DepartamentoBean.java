@@ -2,6 +2,7 @@ package com.servicios;
 
 import java.util.List;
 
+import javax.ejb.Stateful;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -13,7 +14,7 @@ import com.entities.Estacion;
 /**
  * Session Bean implementation class DepartamentoBean
  */
-@Stateless
+@Stateful
 public class DepartamentoBean implements DepartamentoBeanRemote {
 	
 	@PersistenceContext 

@@ -1,6 +1,6 @@
 package com.entities;
 
-//import com.entities.Usuario;
+import com.entities.Usuario;
 import java.io.Serializable;
 import javax.persistence.*;
 
@@ -9,10 +9,6 @@ import javax.persistence.*;
 @PrimaryKeyJoinColumn(referencedColumnName="idUsuario")
 public class Aficionado extends Usuario implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	@Column(length=20)
 	private String ocupacion;
 	
