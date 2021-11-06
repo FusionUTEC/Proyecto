@@ -1,28 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
-	<persistence-unit name="Proyecto">
+	<persistence-unit name="IagroEJB">
 	<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<jta-data-source>java:/PROYECTO</jta-data-source>
-		<class>com.entities.Aficionado</class>
-		<class>com.entities.Casilla</class>
-		<class>com.entities.Departamento</class>
-		<class>com.entities.Formulario</class>
-		<class>com.entities.Registro</class>
+	<jta-data-source>java:/PROYECTO</jta-data-source>
 		<class>com.entities.Usuario</class>
-		<class>com.entities.Administrador</class>
 		<class>com.entities.Estacion</class>
+		<class>com.entities.Departamento</class>
+		<class>com.entities.Administrador</class>
+		<class>com.entities.Aficionado</class>
 		<class>com.entities.Investigador</class>
-			<validation-mode>AUTO</validation-mode>
-                <properties>
-
-                        <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect"/>
-
-                        <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
-
-                        <property name="hibernate.show_sql" value="false"/>
-
-                        <property name="javax.persistence.schema-generation.create-database-schemas" value="true"/>
-
-                </properties>
+		<class>com.entities.Formulario</class>
+		<class>com.entities.Casilla</class>
+		<properties>
+                <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect"/>
+                <property name="hibernate.hbm2ddl.auto" value="update"/>
+                <property name="hibernate.show_sql" value="true"/>
+                <property name="javax.persistence.schema-generation.create-database-schemas" value="true"/>
+        </properties>
 	</persistence-unit>
 </persistence>
+
