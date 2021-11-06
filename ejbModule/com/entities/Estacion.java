@@ -40,6 +40,17 @@ public class Estacion implements Serializable {
 	
 	@ManyToOne
 	private Usuario idInvestigador;
+	
+	@Enumerated(EnumType.STRING)
+	private Estado estado;
+
+	public Estado getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Estado estado) {
+		this.estado = estado;
+	}
 
 	
 	public Estacion() {

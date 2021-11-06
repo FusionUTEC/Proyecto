@@ -32,6 +32,17 @@ public class Casilla implements Serializable {
 
 	@Column(name="UNIDAD_MEDIDA")
 	private String unidadMedida;
+	
+	@Enumerated(EnumType.STRING)
+	private Estado estado;
+
+	public Estado getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Estado estado) {
+		this.estado = estado;
+	}
 
 	//bi-directional many-to-many association to Formulario
 	@ManyToMany(mappedBy="casillas", fetch = FetchType.EAGER)

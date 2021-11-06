@@ -58,6 +58,17 @@ public class Formulario implements Serializable {
 			)
 	private List<Casilla> casillas;
 	
+	@Enumerated(EnumType.STRING)
+	private Estado estado;
+
+	public Estado getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Estado estado) {
+		this.estado = estado;
+	}
+	
 	
 	
 	//bi-directional many-to-one association to Registro

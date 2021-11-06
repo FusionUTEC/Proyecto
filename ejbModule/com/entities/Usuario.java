@@ -160,6 +160,17 @@ public class Usuario implements java.io.Serializable {
 	
 	@Column(length=14)
 	private String contraseña;
+	
+	@Enumerated(EnumType.STRING)
+	private Estado estado;
+
+	public Estado getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Estado estado) {
+		this.estado = estado;
+	}
 
 
 	
