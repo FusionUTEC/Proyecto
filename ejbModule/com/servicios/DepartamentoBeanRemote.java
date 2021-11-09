@@ -8,4 +8,6 @@ public interface DepartamentoBeanRemote {
 
 	List<Departamento> obtenerTodos();
 
+	Departamento buscar(String nombre);
+
 }

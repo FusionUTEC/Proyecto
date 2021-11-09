@@ -9,6 +9,7 @@ import javax.persistence.TypedQuery;
 
 import com.entities.Departamento;
 import com.entities.Estacion;
+import com.entities.Usuario;
 
 /**
  * Session Bean implementation class DepartamentoBean
@@ -31,6 +32,23 @@ public class DepartamentoBean implements DepartamentoBeanRemote {
 		return query.getResultList();
 	}
 
+	@Override
+	public Departamento buscar(String nombre) {
+
+		try {
+			@SuppressWarnings("unchecked")
+			List result = em.createQuery("SELECT d FROM Departamento d WHERE d.nombre= :nombre",Departamento.class)		
+			.setParameter("nombre", nombre) 
+			.setMaxResults(1).getResultList();
+
+			return (Departamento) result.get(0);
+			
+		} catch (IndexOutOfBoundsException e) {
+			System.out.println("No se encontró el departamento");
+			return null;
+		}
+
+	}
 
 
 }
