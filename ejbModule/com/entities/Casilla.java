@@ -32,7 +32,7 @@ public class Casilla implements Serializable {
 
 	@Column(name="UNIDAD_MEDIDA")
 	private String unidadMedida;
-	
+
 	@Enumerated(EnumType.STRING)
 	private Estado estado;
 
@@ -43,10 +43,6 @@ public class Casilla implements Serializable {
 	public void setEstado(Estado estado) {
 		this.estado = estado;
 	}
-
-	//bi-directional many-to-many association to Formulario
-	@ManyToMany(mappedBy="casillas", fetch = FetchType.EAGER)
-	private List<Formulario> formularios;
 
 	public Casilla() {
 	}
@@ -99,12 +95,5 @@ public class Casilla implements Serializable {
 		this.unidadMedida = unidadMedida;
 	}
 
-	public List<Formulario> getFormularios() {
-		return this.formularios;
-	}
-
-	public void setFormularios(List<Formulario> formularios) {
-		this.formularios = formularios;
-	}
 
 }
