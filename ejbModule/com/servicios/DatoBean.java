@@ -37,7 +37,8 @@ public class DatoBean implements DatoBeanRemote {
 		}
 		return reg;
 	}
-	
+    
+    @Override
 	public Dato buscar(String id_Dato) {
 
 		try {
@@ -55,6 +56,7 @@ public class DatoBean implements DatoBeanRemote {
 
 	}
 	
+	@Override
 	public List<Dato> obtenerTodos() {
 		TypedQuery<Dato> query = em.createQuery("SELECT u FROM Dato u",Dato.class); 
 		return (List<Dato>) query.getResultList();
