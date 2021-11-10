@@ -6,8 +6,6 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import javax.persistence.Enumerated;
-import javax.persistence.ManyToMany;
 
 
 /**
@@ -60,7 +58,6 @@ public class Formulario implements Serializable {
 			)
 	private List<Casilla> casillas;
 	
-
 	@Enumerated(EnumType.STRING)
 	private Estado estado;
 

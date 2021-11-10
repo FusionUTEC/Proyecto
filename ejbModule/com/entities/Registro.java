@@ -7,9 +7,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.*;
-import javax.persistence.Enumerated;
-import javax.persistence.ManyToOne;
 
 
 /**
@@ -28,8 +27,7 @@ public class Registro implements Serializable {
 	@Column(name="ID_REGISTRO")
 	private long idRegistro;
 	
-	@ManyToOne
-	@JoinColumn(name="ID_DEPARTAMENTO")
+	@Column(name="Departamento")
 	private Departamento departamento ;
 	
 	
@@ -45,6 +43,11 @@ public class Registro implements Serializable {
 	@Column(name="FECHA_HORA")
 	private Date fechaHora;
 	
+	
+	@Column(name="Datos")
+	private String[][] datos;
+	
+	
 	//bi-directional many-to-one association to Formulario
 	@ManyToOne
 	@JoinColumn(name="ID_FORMULARIO")
@@ -54,18 +57,6 @@ public class Registro implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="ID_USUARIO")
 	private Usuario usuario;
-	
-
-	@Enumerated(EnumType.STRING)
-	private Estado estado;
-
-	public Estado getEstado() {
-		return estado;
-	}
-
-	public void setEstado(Estado estado) {
-		this.estado = estado;
-	}
 
 	public Registro() {
 	}
@@ -90,13 +81,13 @@ public class Registro implements Serializable {
 		this.fechaHora = fechaHora;
 	}
 
-	/*public String[][] getDatos() {
+	public String[][] getDatos() {
 		return datos;
 	}
 
 	public void setDatos(String[][] datos) {
 		this.datos = datos;
-	}*/
+	}
 
 	public Formulario getFormulario() {
 		return this.formulario;
@@ -113,6 +104,5 @@ public class Registro implements Serializable {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-
 
 }
