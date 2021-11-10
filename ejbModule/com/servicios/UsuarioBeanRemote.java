@@ -47,11 +47,13 @@ public interface UsuarioBeanRemote {
 
 	Aficionado buscarAfi(String nombreUsuario);
 
-	Aficionado buscarAfi(Long idusuario);
+	Aficionado buscarAfiId(Long idusuario);
 
-	Investigador buscarInv(Long idusuario);
+	Investigador buscarInvId(Long idusuario);
 
-	Administrador buscarAdm(Long idusuario);
+	Administrador buscarAdmId(Long idusuario);
+	
+	
 
 	
 }

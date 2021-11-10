@@ -8,7 +8,8 @@ import javax.persistence.PersistenceException;
 import javax.persistence.TypedQuery;
 
 import com.entities.Casilla;
-
+import com.entities.Estacion;
+import com.entities.Formulario;
 import com.exception.ServiciosException;
 
 /**
@@ -69,6 +70,23 @@ public class CasillaBean implements CasillaBeanRemote {
 		}
 		return casilla;
 	}
+	
+	@Override
+	public Formulario buscarCas() {
 
+		try {
+			@SuppressWarnings("unchecked")
+			List result = em.createQuery("SELECT DISTINCT c.id_casilla,f.casillas FROM Formulario f, Casillas c WHERE c.id_casillas= f.casillas",Formulario.class )		
+			//.setParameter("id_Casilla", id) 
+			.setMaxResults(1).getResultList();
+
+			return (Formulario) result.get(0);
+			
+		} catch (IndexOutOfBoundsException e) {
+			System.out.println("¨No se encontró la casilla");
+			return null;
+		}
+
+	}
 
 }
