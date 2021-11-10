@@ -125,6 +125,7 @@ public class Usuario implements Serializable {
 package com.entities;
 
 import javax.persistence.*;
+import javax.persistence.Enumerated;
 
 @Entity
 @Table(name="USUARIOS")
@@ -160,6 +161,7 @@ public class Usuario implements java.io.Serializable {
 	
 	@Column(length=14)
 	private String contraseña;
+	
 	
 	@Enumerated(EnumType.STRING)
 	private Estado estado;
