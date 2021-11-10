@@ -12,6 +12,7 @@
 		<class>com.entities.Administrador</class>
 		<class>com.entities.Estacion</class>
 		<class>com.entities.Investigador</class>
+		<class>com.entities.Dato</class>
 			<validation-mode>AUTO</validation-mode>
                 <properties>
 
