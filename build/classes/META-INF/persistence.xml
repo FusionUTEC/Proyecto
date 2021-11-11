@@ -7,9 +7,9 @@
 		<class>com.entities.Casilla</class>
 		<class>com.entities.Departamento</class>
 		<class>com.entities.Formulario</class>
+		<class>com.entities.Registro</class>
 		<class>com.entities.Usuario</class>
 		<class>com.entities.Administrador</class>
-		<class>com.entities.Registro</class>
 		<class>com.entities.Estacion</class>
 		<class>com.entities.Investigador</class>
 			<validation-mode>AUTO</validation-mode>
