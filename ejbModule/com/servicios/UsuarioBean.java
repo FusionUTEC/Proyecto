@@ -123,7 +123,7 @@ public class UsuarioBean implements UsuarioBeanRemote {
 	}
 	
 	@Override
-	public Administrador buscarAdmId(Long idusuario) {
+	public Administrador buscarAdm(Long idusuario) {
 
 		try {
 			@SuppressWarnings("unchecked")
@@ -140,7 +140,7 @@ public class UsuarioBean implements UsuarioBeanRemote {
 
 	}
 	@Override
-	public Investigador buscarInvId(Long idusuario) {
+	public Investigador buscarInv(Long idusuario) {
 
 		try {
 			@SuppressWarnings("unchecked")
@@ -158,7 +158,7 @@ public class UsuarioBean implements UsuarioBeanRemote {
 	}
 	
 	@Override
-	public Aficionado buscarAfiId(Long idusuario) {
+	public Aficionado buscarAfi(Long idusuario) {
 
 		try {
 			@SuppressWarnings("unchecked")
