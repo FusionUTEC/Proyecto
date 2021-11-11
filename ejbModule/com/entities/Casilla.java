@@ -3,6 +3,8 @@ package com.entities;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.util.List;
+import javax.persistence.Enumerated;
+import javax.persistence.ManyToMany;
 
 
 /**
@@ -32,6 +34,7 @@ public class Casilla implements Serializable {
 
 	@Column(name="UNIDAD_MEDIDA")
 	private String unidadMedida;
+	
 	
 	@Enumerated(EnumType.STRING)
 	private Estado estado;

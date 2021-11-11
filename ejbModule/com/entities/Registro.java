@@ -1,7 +1,15 @@
 package com.entities;
 
 import java.io.Serializable;
+import java.security.Key;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+
 import javax.persistence.*;
+import javax.persistence.Enumerated;
+import javax.persistence.ManyToOne;
 
 
 /**
@@ -19,9 +27,24 @@ public class Registro implements Serializable {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="REGISTROS_IDREGISTRO_GENERATOR")
 	@Column(name="ID_REGISTRO")
 	private long idRegistro;
+	
+	@ManyToOne
+	@JoinColumn(name="ID_DEPARTAMENTO")
+	private Departamento departamento ;
+	
+	
+	public Departamento getDepartamento() {
+		return departamento;
+	}
 
-	private String datos;
+	public void setDepartamento(Departamento departamento) {
+		this.departamento = departamento;
+	}
 
+	@Temporal(TemporalType.DATE)
+	@Column(name="FECHA_HORA")
+	private Date fechaHora;
+	
 	//bi-directional many-to-one association to Formulario
 	@ManyToOne
 	@JoinColumn(name="ID_FORMULARIO")
@@ -31,6 +54,18 @@ public class Registro implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="ID_USUARIO")
 	private Usuario usuario;
+	
+
+	@Enumerated(EnumType.STRING)
+	private Estado estado;
+
+	public Estado getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Estado estado) {
+		this.estado = estado;
+	}
 
 	public Registro() {
 	}
@@ -43,13 +78,25 @@ public class Registro implements Serializable {
 		this.idRegistro = idRegistro;
 	}
 
-	public String getDatos() {
-		return this.datos;
+	
+
+	
+
+	public Date getFechaHora() {
+		return fechaHora;
 	}
 
-	public void setDatos(String datos) {
-		this.datos = datos;
+	public void setFechaHora(Date fechaHora) {
+		this.fechaHora = fechaHora;
 	}
+
+	/*public String[][] getDatos() {
+		return datos;
+	}
+
+	public void setDatos(String[][] datos) {
+		this.datos = datos;
+	}*/
 
 	public Formulario getFormulario() {
 		return this.formulario;
@@ -66,5 +113,6 @@ public class Registro implements Serializable {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
+
 
 }

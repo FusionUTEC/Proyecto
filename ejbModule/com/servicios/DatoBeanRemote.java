@@ -1,17 +1,19 @@
 package com.servicios;
+
 import java.util.List;
+
 import javax.ejb.Remote;
 
 import com.entities.Dato;
-import com.entities.Departamento;
 import com.exception.ServiciosException;
 
 @Remote
-public interface DepartamentoBeanRemote {
+public interface DatoBeanRemote {
 
-	List<Departamento> obtenerTodos();
+	List<Dato> obtenerTodos();
 
-	Departamento buscar(String nombre);
+	Dato buscar(String id_Dato);
 	
+	public Dato crear(Dato reg) throws ServiciosException;
 
 }
