@@ -1,23 +1,23 @@
 package com.servicios;
 
 import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.PersistenceException;
 import javax.persistence.TypedQuery;
 
 import com.entities.Casilla;
+import com.entities.Estacion;
 
-import com.exception.ServiciosException;
 
 /**
- * Session Bean implementation class CasillaBean
+ * Session Bean implementation class CasillasBean
  */
 @Stateless
 public class CasillaBean implements CasillaBeanRemote {
-
-	@PersistenceContext
+	
+	@PersistenceContext  
 	private EntityManager em;
 	
 	@Override
@@ -25,7 +25,7 @@ public class CasillaBean implements CasillaBeanRemote {
 		TypedQuery<Casilla> query = em.createQuery("SELECT c FROM Casilla c",Casilla.class); 
 		return query.getResultList();
 	}
-
+	
 	@Override
 	public Casilla buscar(String nombre) {
 
@@ -44,31 +44,11 @@ public class CasillaBean implements CasillaBeanRemote {
 
 	}
 
-	public CasillaBean() {
-	    }
-
-	@Override
-	public void actualizar(Casilla casilla) {
-		try{
-			em.merge(casilla);
-			em.flush();
-		}catch(PersistenceException e){
-			e.getMessage();
-		}
-		
-	}
-
-	@Override
-	public Casilla crear(Casilla casilla) throws ServiciosException {
-		try{
-			em.persist(casilla);
-			em.flush();
-
-		}catch(PersistenceException e) {
-		e.getMessage();
-		}
-		return casilla;
-	}
-
+    /**
+     * Default constructor. 
+     */
+    public CasillaBean() {
+        // TODO Auto-generated constructor stub
+    }
 
 }
