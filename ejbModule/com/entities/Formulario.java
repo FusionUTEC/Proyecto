@@ -41,7 +41,6 @@ public class Formulario implements Serializable {
 	@Column(name="NOMBRE_VARIABLE")
 	private String nombreVariable;
 
-	private String ubicacion;
 
 	/*/bi-directional many-to-many association to Casilla
 	@ManyToMany
@@ -134,13 +133,6 @@ public class Formulario implements Serializable {
 		this.nombreVariable = nombreVariable;
 	}
 
-	public String getUbicacion() {
-		return this.ubicacion;
-	}
-
-	public void setUbicacion(String ubicacion) {
-		this.ubicacion = ubicacion;
-	}
 
 	public List<Casilla> getCasillas() {
 		return this.casillas;
