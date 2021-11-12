@@ -16,4 +16,6 @@ public interface RegistroBeanRemote {
 
 	List<Registro> obtenerTodos();
 
+	void actualizar(Registro r) throws ServiciosException;
+
 }

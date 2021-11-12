@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ejb.Remote;
 
 import com.entities.Dato;
+import com.entities.Registro;
 import com.exception.ServiciosException;
 
 @Remote
@@ -15,5 +16,9 @@ public interface DatoBeanRemote {
 	Dato buscar(String id_Dato);
 	
 	public Dato crear(Dato reg) throws ServiciosException;
+
+
+
+	List<Dato> obtenerDatos(Registro r);
 
 }

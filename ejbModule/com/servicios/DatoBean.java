@@ -9,6 +9,7 @@ import javax.persistence.PersistenceException;
 import javax.persistence.TypedQuery;
 
 import com.entities.Dato;
+import com.entities.Registro;
 import com.exception.ServiciosException;
 
 /**
@@ -55,6 +56,16 @@ public class DatoBean implements DatoBeanRemote {
 		}
 
 	}
+    
+    @Override
+    public List<Dato> obtenerDatos(Registro r) {
+
+      TypedQuery<Dato> query = em.createQuery("select a FROM Dato a where a.registro = ?1", Dato.class);
+      query.setParameter(1, r);
+
+      return (List<Dato>) query.getResultList();
+    }
+  
 	
 	@Override
 	public List<Dato> obtenerTodos() {
