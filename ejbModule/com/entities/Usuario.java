@@ -150,7 +150,7 @@ public class Usuario implements java.io.Serializable {
 	@Column(length=14)
 	private String nombre;
 	
-	@Column(length=20)
+	@Column(length=100)
 	private String mail;
 	
 	@Column(length=14)
