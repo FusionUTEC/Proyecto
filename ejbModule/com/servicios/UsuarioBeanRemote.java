@@ -53,5 +53,7 @@ public interface UsuarioBeanRemote {
 
 	Administrador buscarAdm(Long idusuario);
 
+	Usuario buscarUser(Long id);
+
 	
 }

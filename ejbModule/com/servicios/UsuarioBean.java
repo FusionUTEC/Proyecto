@@ -105,6 +105,24 @@ public class UsuarioBean implements UsuarioBeanRemote {
 	}
 	
 	@Override
+	public Usuario buscarUser(Long id) {
+
+		try {
+			@SuppressWarnings("unchecked")
+			List result = em.createQuery("SELECT u FROM Usuario u WHERE u.idUsuario= :idUsuario",Usuario.class)		
+			.setParameter("idUsuario", id) 
+			.setMaxResults(1).getResultList();
+
+			return (Usuario) result.get(0);
+			
+		} catch (IndexOutOfBoundsException e) {
+			System.out.println("¨No se encontró el usuario");
+			return null;
+		}
+
+	}
+	
+	@Override
 	public Aficionado buscarAfi(String nombreUsuario) {
 
 		try {
