@@ -8,6 +8,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
 import javax.persistence.TypedQuery;
 
+import com.entities.Casilla;
 import com.entities.Dato;
 import com.entities.Registro;
 import com.exception.ServiciosException;
@@ -71,6 +72,21 @@ public class DatoBean implements DatoBeanRemote {
 	public List<Dato> obtenerTodos() {
 		TypedQuery<Dato> query = em.createQuery("SELECT u FROM Dato u",Dato.class); 
 		return (List<Dato>) query.getResultList();
+	}
+	
+	@Override
+	public Dato actualizar(Registro r, Casilla c, String v) {
+		Dato result = em.createQuery("SELECT u FROM Dato u WHERE u.registro= :registro and u.casilla=:casilla",Dato.class)		
+				.setParameter("registro", r) 
+				.setParameter("casilla", c) 
+				.setMaxResults(1).getResultList().get(0);
+
+		result.setValor(v);
+		em.merge(result);
+		em.flush();
+		
+		return result;
+		
 	}
 
 }

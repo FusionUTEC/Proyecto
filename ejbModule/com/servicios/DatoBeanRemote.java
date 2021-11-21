@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.ejb.Remote;
 
+import com.entities.Casilla;
 import com.entities.Dato;
 import com.entities.Registro;
 import com.exception.ServiciosException;
@@ -20,5 +21,7 @@ public interface DatoBeanRemote {
 
 
 	List<Dato> obtenerDatos(Registro r);
+
+	Dato actualizar(Registro r, Casilla c, String v);
 
 }
