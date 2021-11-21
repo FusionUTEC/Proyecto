@@ -59,6 +59,26 @@ public class FormularioBean implements FormularioBeanRemote {
 		}
 
 	}
+	
+	@Override
+	public Formulario casillaActiva(String nombre) {
+
+		try {
+			@SuppressWarnings("unchecked")
+			List result = em.createQuery("SELECT f FROM Formulario f JOIN f.casillas c WHERE c.nombre= :nombre ",Formulario.class)		
+			.setParameter("nombre", nombre) 
+			.setMaxResults(1).getResultList();
+
+			return (Formulario) result.get(0);
+
+		} catch (IndexOutOfBoundsException e) {
+			System.out.println("¨No se encontró el formulario");
+			return null;
+		}
+
+	}
+	
+	
 	@Override
 	public void borrar(Long id) throws ServiciosException {
 		try{

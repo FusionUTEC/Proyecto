@@ -18,4 +18,5 @@ public interface FormularioBeanRemote {
 	void borrar(Long id) throws ServiciosException;
 	void actualizar(Formulario form) throws ServiciosException;
 	public List<Casilla> buscarContiene (Long id);
+	Formulario casillaActiva(String nombre);
 }
